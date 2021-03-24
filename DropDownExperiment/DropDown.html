@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+ /* Fixed sidenav, full height */
+/* This works fine except nevigation */
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    background-color:black;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  
+  /* Style the sidenav links and the dropdown button */
+  .sidenav a, .dropdown-btn {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: grey;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .sidenav :hover {
+    color: #f1f1f1;
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    font-size: 36px;
+    /* margin-left: 50px; */
+  }
+  
+  /* Main content */
+  .main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  }
+  
+  /* Add an active class to the active dropdown button */
+  .active {
+    background-color: green;
+    /* color: red; */
+  }
+  
+  /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+  .dropdown-container {
+    display: none;
+    background-color: #262626;
+    padding-left: 8px;
+  }
+  
+  /* Optional: Style the caret down icon */
+  .fa-caret-down {
+    float: right;
+    padding-right: 8px;
+  }
+  
+  /* Some media queries for responsiveness */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  span{
+      font-size:30px;
+      cursor:pointer;
+      position: absolute;
+      right: 50px;
+  }
+  /* the closebtn css is not working somehow */
+  /* .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  } */
+  
+  /* The code below somehow does not work */
+  .dropdown-btn .dropdown-container :hover{
+    /* background-color: red; */
+  }
+  
+  
+</style>
+</head>
+<body>
+    <span onclick="openNav()">Menu &#9776;</span>
+<div class="sidenav" id="mySidenav">
+  <!-- Need to fix this close button issue either in this file or in menubar.css -->
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&times;</a>
+  <button class="dropdown-btn">Hitesh Shakya
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Ebooks by Hitesh Shakya</a>
+    <a href="#">Sanskrit</a>
+    <a href="#">Uncensored Videos Of Hitesh Shakya</a>
+    <a href="#">Complete Courrse in Superiority</a>
+  </div>
+
+  <button class="dropdown-btn">Superior Society Representative
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Superior Society WhatsApp Group</a>
+    <a href="#">WhatsApp Superiors</a>
+    <a href="#">WhatsApp Group Links</a>
+  </div>
+  
+<button class="dropdown-btn">Contribute
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="#">Contribute Superior Society</a>
+  </div>
+  <a href="#about">Right to Recall Movement</a>
+  <a href="#services">Superior Society Classified</a>
+</div>
+
+<div class="main">
+  <h2>Sidebar Dropdown</h2>
+  <p>Click on the dropdown button to open the dropdown menu inside the side navigation.</p>
+  <p>This sidebar is of full height (100%) and always shown.</p>
+  <p>Some random text..</p>
+</div>
+
+<script>
+/* Loop through all dropdown buttons to toggle between hiding and showing its dropdown content - This allows the user to have multiple dropdowns without any conflict */
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+<script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "270px";
+    }
+    
+    function closeNav() {
+      document.getElementById("mySidenav").style.width = "0px";
+    }
+    </script>
+    
+</body>
+</html> 
